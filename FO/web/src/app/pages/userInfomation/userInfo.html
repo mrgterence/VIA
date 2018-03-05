@@ -1,0 +1,197 @@
+<div class="userI" ng-controller="userInfoCtrl as userI">
+    <div class="row" ng-show="userI.admin" style="overflow-y:auto;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-xs-2">
+                        <span>Name</span>
+                    </th>
+                    <th class="col-xs-3">
+                        <span>Email</span>
+                    </th>
+                    <th class="col-xs-2">
+                        <span>Last Login</span>
+                    </th>
+                    <th class="col-xs-2">
+                        <span>Status</span>
+                    </th>
+                    <th class="col-xs-3">
+                        <span>Action</span>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="row in userI.list">
+                    <td class="col-xs-2">
+                        <strong>
+                            <a data-toggle="modal" ng-click="open('app/pages/userInfomation/userDetail.html', 'lg', row, 1)">{{::row.Name}}</a>
+                        </strong>
+                    </td>
+                    <td class="col-xs-3">{{::row.Email}}</td>
+                    <td class="col-xs-2">{{::row.LastLogin  | date: 'yyyy-MM-dd HH:mm'}}</td>
+                    <td class="col-xs-2">{{::row.Status ? 'Active':'Inactive'}}</td>
+                    <td>
+                        <!-- <a class="tooltips" data-original-title="Deactivate" title="{{row.Status ? 'ACTIVATE':'DEACTIVATE'}}" ng-click="">
+                            <span ng-show="row.Status == true">
+                                <i class="icon ion-ios-close-outline"></i>
+                            </span>
+                            <span ng-show="row.Status == false">
+                                <i class="icon ion-ios-checkmark-outline"></i>
+                            </span>
+                        </a>&nbsp; -->
+                        <a class="tooltips" data-original-title="History" title="History" data-toggle="modal" ng-click="open('app/pages/userInfomation/userSearchHistory.html', 'lg', row, 2)">
+                            <i class="icon ion-ios-list-outline"></i>
+                        </a>&nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row" ng-show="!userI.admin">
+        <div class="row">
+          <h1 style="margin-left:60px;"><span style="color:#FF9631">In</span>Editable</h1>
+        </div>
+
+        <div class="row" style="outline:2px dashed #FF9631; height: 150px;margin-top:1%;margin-left:50px;margin-right:50px;overflow-y:auto;">
+            <div class="row" style="margin-top:20px;margin-left:20px;margin-right:20px;">
+                <label class="control-label col-sm-2">
+                    {{'Email'}}
+                </label>
+                <div class="col-sm-4">
+                    <label> : {{userI.model.Email? userI.model.Email:'None'}} </label>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px;margin-left:20px;margin-right:20px;">
+                <label class="control-label col-sm-2">
+                    {{'Create Date'}}
+                </label>
+                <div class="col-sm-4">
+                    <label> : {{userI.model.CreateDate | date: 'yyyy-MM-dd HH:mm'}} </label>
+                </div>
+        
+                <label class="control-label col-sm-2">
+                    {{'Last Modify Date: '}}
+                </label>
+                <div class="col-sm-4">
+                    <label> : {{userI.model.ModifyDate | date: 'yyyy-MM-dd HH:mm'}} </label>
+                </div>
+            </div>
+        
+            <div class="row" style="margin-top:20px;margin-left:20px;margin-right:20px;">
+                <label class="control-label col-sm-2">
+                    {{'Last Login: '}}
+                </label>
+                <div class="col-sm-4">
+                    <label> : {{userI.model.LastLogin | date: 'yyyy-MM-dd HH:mm'}} </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+                <h1 style="margin-left:60px;margin-top:50px;">Editable</h1>
+        </div>
+
+        <div class="row" style="outline:2px dashed #FF9631; height: 300px;margin-top:1%;margin-left:50px;margin-right:50px;overflow-y:auto;">
+            <div class="form-group">
+                <div class="row"  style="margin-top:20px;margin-left:20px;margin-right:20px;">
+                    <label class="control-label col-sm-2">
+                        <b>{{'Name: '}}</b>
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" maxlength="20" ng-disabled="userI.isView" ng-model="userI.model.Name" name="Name" class="form-control"
+                            placeholder="None" required/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row" style="margin-top:20px;margin-left:20px;margin-right:20px;">
+                    <label class="control-label col-sm-2">
+                        <b>{{'FirstName: '}}</b>
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" maxlength="20" ng-disabled="userI.isView" ng-model="userI.model.FirstName" name="FirstName" class="form-control"
+                            placeholder="None" required />
+                    </div>
+            
+                    <label class="control-label col-sm-2">
+                        <b>{{'LastName: '}}</b>
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" maxlength="20" ng-disabled="userI.isView" ng-model="userI.model.LastName" name="LastName" class="form-control"
+                            placeholder="None" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row" style="margin-top:20px;margin-left:20px;margin-right:20px;">
+                    <label class="control-label col-sm-2">
+                        <b>{{'Gender: '}}</b>
+                    </label>
+                    <div class="col-sm-4">
+                        <select ng-model="userI.model.Gender"  class="form-control" style="width:100%;" ng-disabled="userI.isView">
+                            <option style="color:black" ng-repeat="data in userI.gender" value="{{data.gender}}" >{{::data.gender}}</option>
+                        </select>
+                    </div>
+            
+                    <label class="control-label col-sm-2">
+                        <b>{{'Birthday: '}}</b>
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="date" ng-show="!userI.isView" ng-disabled="userI.isView" ng-model="userI.model.Birthday" name="Birthday" class="form-control" placeholder="None" required />
+                        <label ng-show="userI.isView">{{userI.model.Birthday | date: 'yyyy-MM-dd'}}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row" style="margin-top:20px;margin-left:20px;margin-right:20px;">
+                    <label class="control-label col-sm-2">
+                        <b>{{'Address: '}}</b>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="textarea" maxlength="20" ng-disabled="userI.isView" ng-model="userI.model.Address" name="Address" class="form-control"
+                            placeholder="None" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row" style="margin-top:20px;margin-left:20px;margin-right:20px;">
+                    <label class="control-label col-sm-2">
+                        <b>{{'Password: '}}</b>
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="password" ng-model="userI.model.Password" class="form-control" placeholder="Password" ng-change="userI.secure()"
+                         ng-disabled="userI.isView">
+                        <p style="margin-top:10px;color:#FF9631;" ng-show=userI.passFail>  <i style="color:#FF9631;" class="icon ion-alert-circled" ng-show="userI.passFail"></i> Password must min.8 character and at least one Uppercase, lowercase, number and special character</p>
+                    </div>
+            
+                    <label class="control-label col-sm-2">
+                        <b>{{'Confirm Password: '}}</b>
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="password" ng-model="userI.model.confirmPassword" class="form-control" placeholder="Confirm Password"
+                            ng-change="userI.validate()" ng-disabled="userI.isView">
+                        <p style="margin-top:10px;color:#FF9631" ng-show="userI.fail"><i style="color:#FF9631;" class="icon ion-alert-circled" ng-show="userI.fail"></i> Passwords not match! </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="row" style="margin-top:20px;margin-left:auto;margin-right:auto;width: 100px;" ng-show="userI.isView">
+            <button type="button" class="btn btn-default btn-auth" ng-click="userI.Edit()" style="width:100px;">Edit</button>
+        </div>
+
+        <div class="row" style="margin-top:20px;margin-left:auto;margin-right:auto;width: 100px;" ng-show="!userI.isView">
+            <button type="button" class="btn btn-default btn-auth" ng-click="userI.Save()" style="width:100px;">Save</button>
+        </div>
+
+                
+    </div>
+</div>

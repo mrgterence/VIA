@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="module">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+    <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
+    <Property Name="ADMIN_ACCESS" Type="bool" />
+    <Property Name="USER_ACCESS" Type="bool" />
+    <Property Name="IS_ENABLE" Type="bool" />
+    <Property Name="IS_DELETE" Type="bool" />
+    <Property Name="CREATE_DATE" Type="datetime" Precision="0" />
+    <Property Name="MODIFY_DATE" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="search_history">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="SEARCH_TERM" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SEARCH_KEY" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="IS_ENABLE" Type="bool" Nullable="false" />
+    <Property Name="IS_DELETE" Type="bool" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="datetime" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+    <Property Name="FIRST_NAME" Type="varchar" MaxLength="100" />
+    <Property Name="LAST_NAME" Type="varchar" MaxLength="100" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="100" />
+    <Property Name="GENDER" Type="varchar" MaxLength="45" />
+    <Property Name="BIRTHDAY" Type="datetime" Precision="0" />
+    <Property Name="PHONE" Type="varchar" MaxLength="100" />
+    <Property Name="ADDRESS" Type="varchar" MaxLength="100" />
+    <Property Name="ROLE" Type="int" />
+    <Property Name="IS_ENABLE" Type="bool" Nullable="false" />
+    <Property Name="IS_DELETE" Type="bool" Nullable="false" />
+    <Property Name="LAST_LOGIN" Type="datetime" Precision="0" />
+    <Property Name="MODIFY_DATE" Type="datetime" Precision="0" />
+    <Property Name="CREATE_DATE" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="testModelStoreContainer">
+    <EntitySet Name="module" EntityType="Self.module" Schema="test" store:Type="Tables" />
+    <EntitySet Name="search_history" EntityType="Self.search_history" Schema="test" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="test" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

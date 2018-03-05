@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="module">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ADMIN_ACCESS" Type="Boolean" />
+    <Property Name="USER_ACCESS" Type="Boolean" />
+    <Property Name="IS_ENABLE" Type="Boolean" />
+    <Property Name="IS_DELETE" Type="Boolean" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="MODIFY_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ROLE" Type="Int32" />
+    <Property Name="LAST_LOGIN" Type="DateTime" />
+    <Property Name="IS_ENABLE" Type="Boolean" Nullable="false" />
+    <Property Name="IS_DELETE" Type="Boolean" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="FIRST_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GENDER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="BIRTHDAY" Type="DateTime" />
+    <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MODIFY_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="modules" EntityType="Self.module" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="search_history" EntityType="testModel.search_history" />
+  </EntityContainer>
+  <EntityType Name="search_history">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="SEARCH_TERM" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SEARCH_KEY" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="IS_ENABLE" Type="Boolean" Nullable="false" />
+    <Property Name="IS_DELETE" Type="Boolean" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" />
+  </EntityType>
+</Schema>

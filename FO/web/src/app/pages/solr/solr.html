@@ -1,0 +1,87 @@
+<div class="solr" ng-controller="solrCtrl as solrVm">
+
+        <div style="width: 100%; height: 100%;" ng-show="!solrVm.called">
+          <img src="solr.png" alt="Solr" style="display:block;margin-top:100px;margin-left:auto;margin-right:auto;width:15%;height:15%";>
+
+          <div>
+                <form class="form-horizontal" ng-submit="solrVm.submit()">
+
+                        <div class="form-group">
+                            <h1 style=" text-align: center;">Please enter Solr Server's IP Address :</h1>
+                            <div style="width:35%;margin-top:25px;margin-left:auto;margin-right:auto;">
+                                <input type="text" ng-model="solrVm.IP" class="form-control" style="left:50%;text-align:center" placeholder="Example: 192.168.222.128">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div style="text-align:center;">
+                                    <button type="submit" class="btn btn-default btn-auth" >Go</button>
+                            </div>              
+                        </div>
+
+                </form>
+          </div>
+        </div>
+
+        <div ng-show="solrVm.success">
+            <div class="panel">
+                <div class="panel-heading" style="background-color:#ff9631;"><h5>Core Name: {{solrVm.model.name}}</h5></div>
+                <div class="panel-body" style="height:400px;opacity:0.7;">
+                  <div class="row">
+                        <label class="col-sm-2">Config:</label> <p class="col-sm-4">{{solrVm.model.config}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Schema:</label> <p class="col-sm-4">{{solrVm.model.schema}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Data Directory:</label> <p class="col-sm-4">{{solrVm.model.dataDir}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Start Time:</label> <p class="col-sm-4">{{solrVm.model.startTime}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Up Time:</label> <p class="col-sm-4">{{solrVm.model.uptime}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Up Time:</label> <p class="col-sm-4">{{solrVm.model.uptime}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Max. Document:</label> <p class="col-sm-4">{{solrVm.model.index.maxDoc}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Number of Documents:</label> <p class="col-sm-4">{{solrVm.model.index.numDocs}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Deleted Documents:</label> <p class="col-sm-4">{{solrVm.model.index.deleteDocs}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Last Modified:</label> <p class="col-sm-4">{{solrVm.model.index.lastModified}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Size:</label> <p class="col-sm-4">{{solrVm.model.index.size}}</p>
+                  </div>
+
+                  <div class="row">
+                        <label class="col-sm-2">Size In Bytes:</label> <p class="col-sm-4">{{solrVm.model.index.sizeInBytes}}</p>
+                  </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="solrVm.fail">
+                <img src="tool1.png" alt="Server Down" style="display:block;margin-top:200px;margin-left:auto;margin-right:auto;width:15%;height:15%";>
+                <h1 style="text-align:center;margin-top:20px;">Opps! Server Down!</h1>
+        </div>
+</div>

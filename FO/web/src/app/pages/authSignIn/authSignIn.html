@@ -1,0 +1,47 @@
+<div class="login" ng-controller="authSignInCtrl as signInVm">
+  <main class="auth-main">
+    <div class="auth-block">
+      <!-- Start Here -->
+      <!-- <div class ="logo">
+          <img src="alien_25.png" alt="Logo">
+      </div> -->
+      <ul class="tab-group">
+        <li class="tab active"><a ui-sref="authSignIn">Login</a></li>
+        <li class="tab"><a ui-sref="authSignUp">Sign Up</a></li>
+      </ul>
+      <!-- end here -->
+      <h1>Welcome!</h1>
+      <form class="form-horizontal" ng-submit="signInVm.logar()">
+
+        <div class="form-group">
+          <!-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> -->
+          <div class="col-sm-12">
+            <input type="email" ng-model="signInVm.email" class="form-control" id="inputEmail3" placeholder="Email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <!-- <label for="inputPassword3" class="col-sm-2 control-label">Password</label> -->
+          <div class="col-sm-12">
+            <input type="password" ng-model="signInVm.passWord" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-default btn-auth">Sign in</button>
+          </div>
+        </div>
+
+        <div  ng-show="!signInVm.success" style="display:incline-block;margin-top:20px;">
+            <i style="float:left;color:#FF9631;" class="icon ion-alert-circled"></i>
+            <p style="margin-left:20px;">The <span style="color:#FF9631">username</span> or <span  style="color:#FF9631">password</span> is incorrect.</p>
+        </div>
+        
+      </form>
+    </div>
+  </main>
+  <div id="preloader" ng-show="!$pageFinishedLoading">
+    <div></div>
+  </div>
+</div>

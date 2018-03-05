@@ -1,0 +1,115 @@
+<div class="modal-content" ng-controller="dashboardCtrl as dashboardVm">
+    <div class="modal-header" style="background-color:#FF9631;">
+        <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <h4 class="modal-title" style="color:white" id="myModalLabel" >{{row.seller[0]}}
+            <a href="{{row.product_link[0]}}" target="_blank"  style="color:white">[Product]</a>
+            <a href="{{row.seller_link}}" target="_blank" style="color:white">[Home]</a>
+            <a href="{{row.seller_detail_link}}" target="_blank" style="color:white;margin-left:5px;">[Review]</a>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <label>Name : </label>
+                <label>{{row.name[0]}}</label>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:2%;">
+                <div class="col-sm-4">
+                    <label>Location : </label>
+                    <label>{{row.location[0]}}</label>
+                </div>
+    
+                <div class="col-sm-4">
+                    <label>Shiping Fee : </label>
+                    <label>{{row.ship[0]}}</label>
+                </div>
+    
+                <div class="col-sm-4">
+                    <label>Estimate Arrive : </label>
+                    <label>{{row.estimateArrive[0]}}</label>
+                </div>
+            </div>
+
+        <div class="row" style="margin-top:2%;">
+            <div class="col-sm-6">
+                <label>Status : </label>
+                <label>{{row.s_Status[0]}}</label>
+            </div>
+
+            <div class="col-sm-6">
+                <label>Member Store : </label>
+                <label>{{row.s_IsMStore[0]}}</label>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:2%;">
+                <div class="col-sm-6">
+                    <label>Feedback Score : </label>
+                    <label>{{row.s_feedBackScore[0]}}</label>
+                </div>
+    
+                <div class="col-sm-6">
+                    <label>Feedback Score : </label>
+                    <label>{{row.s_PfeedBack[0]}}</label>
+                </div>
+            </div>
+
+        <div class="row" style="margin-top:2%;">
+            <div class="col-sm-6">
+                <label>MyKad verified : </label>
+                <label>{{row.s_myKadVerified[0]}}</label>
+            </div>
+            <div class="col-sm-6">
+                <label>Handphone verified : </label>
+                <label>{{row.s_phoneVerified[0]}}</label>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row" style="margin-top:2%;">
+            <div class="col-sm-6">
+                <label>Will Trade Again : </label>
+                <label style="background-color:black;padding:8px;width:50px;color:white;text-align:center;">{{row.s_willTA_Y[0]}}</label>
+                <label style="color:black;padding:8px;width:50px;text-align:center;">{{row.s_willTA_S[0]}}</label>
+                <label style="background-color:#FF9631;padding:8px;width:50px;color:white;text-align:center;">{{row.s_willTA_N[0]}}</label>
+            </div>
+
+            <div class="col-sm-6">
+                <label>Listing Accurancy : </label>
+                <label style="background-color:black;padding:8px;width:50px;color:white;text-align:center;">{{row.s_listingAcc_Y[0]}}</label>
+                <label style="color:black;padding:8px;width:50px;text-align:center;">{{row.s_s_listingAcc_S[0]}}</label>
+                <label style="background-color:#FF9631;padding:8px;width:50px;color:white;text-align:center;">{{row.s_listingAcc_N[0]}}</label>
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-top:2%;">
+            <div class="col-sm-6">
+                <label>Deliver On Time : </label>
+                <label style="background-color:black;padding:8px;width:50px;color:white;text-align:center;">{{row.s_TOnTime_Y[0]}}</label>
+                <label style="color:black;padding:8px;width:50px;text-align:center;">{{row.s_TOnTime_S[0]}}</label>
+                <label style="background-color:#FF9631;padding:8px;width:50px;color:white;text-align:center;">{{row.s_TOnTime_N[0]}}</label>
+            </div>
+
+            <div class="col-sm-6">
+                <label>Feedback : </label>
+                <label style="background-color:black;padding:8px;width:50px;color:white;text-align:center;">{{row.s_MPfeedBack[0]}}</label>
+                <label style="background-color:#FF9631;padding:8px;width:50px;color:white;text-align:center;">{{row.s_MNfeedBack[0]}}</label>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="$dismiss()">Close</button>
+    </div>
+</div>

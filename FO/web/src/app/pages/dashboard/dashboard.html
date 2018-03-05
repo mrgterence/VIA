@@ -1,0 +1,142 @@
+<div class="dashboard" ng-controller="dashboardCtrl as dashboardVm">
+        <div align="center" style="margin-top:20%;" ng-show="!dashboardVm.called">
+                <form class="form-horizontal" ng-submit="dashboardVm.submit()">
+
+                        <div class="form-group">
+                                <input type="text" ng-model="dashboardVm.key" class="form-control" placeholder="Enter product name here..." style="padding: 15px;font-size: 17px;float: left; height: 55px;width: 700px;border: none;margin-left:30%">
+                                <button type="submit" class="btn btn-default btn-auth" onMouseOver="this.style.color='#000000'" onMouseOut="this.style.color='#F8F8FF'"
+                                        style="float: left;width: 80px;padding: 15px;background:#ff9631;font-size: 17px;border: none;">
+                                        <i class="icon ion-search"></i>
+                                </button>
+                        </div>
+
+                </form>
+
+        </div>
+
+        <div ng-show="dashboardVm.called">
+                <div class="row">
+                        <div class="well" style="height:200px;background-color:#ff9631;margin-left:15px;margin-right:20px;">
+                                <h1 style="color: #ffffff;text-align: center;top: 50%;position: relative;top: 50%;transform: translateY(-50%);">Total Vendors Found: {{dashboardVm.count}}</h1>
+                        </div>
+                </div>
+
+                <div class="row" style="opacity:0.7;">
+                        <div class="col-sm-6">
+                                <div class="well" style="height:200px;background-color:#ff9631;">
+                                        <h1 style="color: #ffffff;text-align: center;top: 50%;position: relative;top: 50%;transform: translateY(-50%);">Feedback Score > 500: {{dashboardVm.feedB500}}</h1>
+                                </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                                <div class="well" style="height:200px;background-color:#ff9631;">
+                                        <h1 style="color: #ffffff;text-align: center;top: 50%;position: relative;top: 50%;transform: translateY(-50%);">View > 500: {{dashboardVm.view}}</h1>
+                                </div>
+                        </div>
+
+                </div>
+
+                <div class="row" style="opacity:0.7;">
+                        <div class="well" style="height:200px;background-color:#ff9631;margin-left:15px;margin-right:15px;overflow-y:auto;">
+                                <table class="col-sm-12" align="center">
+                                        <thead>
+                                                <tr>
+                                                        <th class="col-sm-6">
+                                                                <h2 style="text-align:center">Location:</h2>
+                                                        </th>
+
+                                                        <th class="col-sm-6">
+                                                                <h2 style="text-align:center">Number:</h2>
+                                                        </th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr ng-repeat="row in dashboardVm.frequency" align="center">
+                                                        <th class="col-xs-6">
+                                                                <h2 style="text-align:center"> {{::row[0]}}</h2>
+                                                        </th>
+
+                                                        <th class="col-xs-6">
+                                                                <h2 style="text-align:center"> {{::row[1]}}</h2>
+                                                        </th>
+
+                                                </tr>
+
+                                        </tbody>
+                                </table>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="well" style="margin-left:15px;margin-right:15px">
+                                <div style="background-color:#ffffff;color:black;display: inline-block;overflow:auto;height:300px;">
+                                        <table>
+                                                <thead>
+                                                        <tr>
+                                                                <th class="col-xs-1">
+                                                                        <b>Name:</b>
+                                                                </th>
+                                                                <th class="col-xs-3">
+                                                                        <b>Product:</b>
+                                                                </th>
+                                                                <th class="col-xs-1">
+                                                                        <b>Price:</b>
+                                                                </th>
+                                                                <th class="col-xs-1">
+                                                                        <b>Status:</b>
+                                                                </th>
+                                                                <th class="col-xs-1">
+                                                                        <b>Feedback Score:</b>
+                                                                </th>
+                                                                <th class="col-xs-1">
+                                                                        <b>View:</b>
+                                                                </th>
+                                                                <th class="col-xs-2">
+                                                                        <b>Location:</b>
+                                                                </th>
+                                                                <th class="col-xs-2">
+                                                                        <b>Estimate Arrive:</b>
+                                                                </th>
+                                                                <th class="col-xs-2">
+                                                                        <b>Review:</b>
+                                                                </th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr ng-repeat="row in dashboardVm.item">
+                                                                <th class="col-xs-1">
+                                                                        <a data-toggle="modal" ng-click="open('app/pages/dashboard/sellerInfo.html', 'lg', row)">{{::row.seller[0]}}</a>
+                                                                </th>
+                                                                <th class="col-xs-3">{{::row.name[0]}}</th>
+                                                                <th class="col-xs-1">{{::row.price[0]}}</th>
+                                                                <th class="col-xs-1">{{::row.s_Status[0]}}</th>
+                                                                <th class="col-xs-1">{{::row.s_feedBackScore[0]}}</th>
+                                                                <th class="col-xs-1">{{::row.view[0]}}</th>
+                                                                <th class="col-xs-2">{{::row.location[0]}}</th>
+                                                                <th class="col-xs-2">{{::row.estimateArrive[0]}}</th>
+                                                                <th class="col-xs-2">{{::row.review[0]}}</th>
+                                                        </tr>
+                                                        
+                                                        <tr ng-if="dashboardVm.item.length == 0">
+                                                                <td colspan="12" align="center" style="color:red;">
+                                                                        <b>No Data</b>
+                                                                </td>
+                                                        </tr>
+
+                                                </tbody>
+                                        </table>
+
+                                </div>
+                        </div>
+
+                </div>
+
+
+
+        </div>
+
+        <div class="loading style-2" ng-show="!finish">
+                <div class="loading-wheel">
+
+                </div>
+        </div>
+</div>

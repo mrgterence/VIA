@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="testModelStoreContainer" CdmEntityContainer="testEntities">
+    <EntitySetMapping Name="modules">
+      <EntityTypeMapping TypeName="testModel.module">
+        <MappingFragment StoreEntitySet="module">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="ADMIN_ACCESS" ColumnName="ADMIN_ACCESS" />
+          <ScalarProperty Name="USER_ACCESS" ColumnName="USER_ACCESS" />
+          <ScalarProperty Name="IS_ENABLE" ColumnName="IS_ENABLE" />
+          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="MODIFY_DATE" ColumnName="MODIFY_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="testModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="MODIFY_DATE" ColumnName="MODIFY_DATE" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+          <ScalarProperty Name="LAST_LOGIN" ColumnName="LAST_LOGIN" />
+          <ScalarProperty Name="IS_ENABLE" ColumnName="IS_ENABLE" />
+          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="search_history">
+      <EntityTypeMapping TypeName="testModel.search_history">
+        <MappingFragment StoreEntitySet="search_history">
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
+          <ScalarProperty Name="IS_ENABLE" ColumnName="IS_ENABLE" />
+          <ScalarProperty Name="SEARCH_KEY" ColumnName="SEARCH_KEY" />
+          <ScalarProperty Name="SEARCH_TERM" ColumnName="SEARCH_TERM" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

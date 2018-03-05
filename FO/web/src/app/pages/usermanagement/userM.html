@@ -1,0 +1,47 @@
+<div class="userM" ng-controller="userMCtrl as userM">
+        <table class="table">
+          <thead>
+          <tr>
+            <th class="col-xs-2"><span>Name</span></th>
+            <th class="col-xs-3"><span>Email</span></th>
+            <th class="col-xs-2"><span>Last Login</span></th>
+            <th class="col-xs-2"><span>Status</span></th>
+            <th class="col-xs-3"><span>Action</span></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr ng-repeat="row in userM.list">
+            <td class="col-xs-2">
+                <strong><a href="#/main/userInfomation/{{::row.Id}}" ng-click="userM.getId(row.Id)">{{::row.Name}} </a></strong>
+            </td>
+            <td class="col-xs-3">{{::row.Email}}</td>
+            <td class="col-xs-2">{{::row.LastLogin}}</td>
+            <td class="col-xs-2">{{::row.Status ? 'Active':'Inactive'}}</td>
+            <td>
+              <a class="tooltips"
+                 data-original-title="Deactivate"
+                 title="{{row.Status ? 'ACTIVATE':'DEACTIVATE'}}"
+                 ng-click="">
+                <span ng-show="row.Status == true"><i class="icon ion-ios-close-outline"></i></span>
+                <span ng-show="row.Status == false"><i class="icon ion-ios-checkmark-outline"></i></span>
+              </a>&nbsp;
+              <a class="tooltips"
+                 data-original-title="History"
+                 title="History"
+                 ng-click="">
+                 <i class="icon ion-ios-list-outline"></i>
+              </a>&nbsp;
+            </td>
+          </tr>
+
+          <tr ng-if="userM.list.length == 0">
+            <td colspan="12" align="center" style="color:red;">
+              <b>No Data</b>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+
+      </div>

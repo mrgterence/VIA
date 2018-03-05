@@ -1,0 +1,67 @@
+<div class="login" ng-controller="authSignUpCtrl as signUpVm">
+
+  <main class="auth-main">
+    <div class="auth-block">
+      <!-- Start Here -->
+      <!-- <div class ="logo">
+      <img src="alien_25.png" alt="Logo">
+      </div> -->
+      <ul class="tab-group">
+          <li class="tab"><a ui-sref="authSignIn">Login</a></li>
+          <li class="tab active"><a ui-sref="authSignUp">Sign Up</a></li>
+      </ul>
+        <!-- end here -->
+      <h1>Sign Up!</h1>
+      
+      <form class="form-horizontal" ng-submit="signUpVm.register()">
+        
+        <div class="form-group">
+          <!-- <label for="inputName3" class="col-sm-2 control-label">Name</label> -->
+          <div class="col-sm-12">
+            <input type="text" ng-model="signUpVm.name" class="form-control" id="inputName3" placeholder="Full Name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <!-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> -->
+          <div class="col-sm-12">
+            <input type="email"  ng-model="signUpVm.email" class="form-control" id="inputEmail3" placeholder="Email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <!-- <label for="inputPassword3" class="col-sm-2 control-label">Password</label> -->
+          <div class="col-sm-12">
+            <input type="password" ng-model="signUpVm.password" class="form-control" id="inputPassword3" placeholder="Password" ng-change="signUpVm.secure()" required>
+            <i style="margin-top:15px;float:left;color:#FF9631;" class="icon ion-alert-circled" ng-show="signUpVm.passFail"></i>
+            <p style="margin-top:15px;margin-left:20px;color:#FF9631;" ng-show=signUpVm.passFail> Password must min.8 character and at least one Uppercase, lowercase, number and special character</p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <!-- <label for="inputPassword3" class="col-sm-2 control-label">Password</label> -->
+          <div class="col-sm-12">
+            <input type="password" ng-model="signUpVm.confirmPassword" class="form-control" id="inputPassword4" placeholder="Confirm Password" ng-change="signUpVm.validate()" required>
+            <i style="margin-top:15px;float:left;color:#FF9631;" class="icon ion-alert-circled" ng-show="signUpVm.fail"></i>
+            <p style="margin-top:15px;margin-left:20px;color:#FF9631" ng-show="signUpVm.fail"> Passwords not match! </p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-default btn-auth" ng-disabled="signUpVm.fail || signUpVm.passFail" style="margin-top:10px;">Sign Up</button>
+          </div>
+        </div>
+
+        <div ng-show="!signUpVm.success" style="display:incline-block;margin-top:20px;">
+            <i style="float:left;color:#FF9631;" class="icon ion-alert-circled"></i>
+            <p style="margin-left:20px;">The<span style="color:#FF9631"> email </span> already <span style="color:#FF9631">exist</span>.</p>
+        </div>
+        
+      </form>
+    </div>
+  </main>
+  <div id="preloader" ng-show="!$pageFinishedLoading">
+    <div></div>
+  </div>
+</div>

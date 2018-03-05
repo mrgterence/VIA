@@ -1,0 +1,134 @@
+<div class="scrapy" ng-controller="scrapyCtrl as scrapyVm">
+    <h3>
+        <span style="color:#ff9631">Spider</span> Job Lists</h3>
+    <h5>For more detail about spider, please access Scraping Cloud at
+        <a href="https://scrapinghub.com/scrapy-cloud?_ga=2.32757948.303305989.1518082989-165554114.1517081759">
+            Scrapinghub</a>
+    </h5>
+
+    <div>
+        <div ba-panel ba-panel-title="Pending: {{scrapyVm.model[0].count}}" ba-panel-class="medium-panel with-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-xs-1"><b>Name:</b></th>
+                        <th class="col-xs-1"><b>Key:</b></th>
+                        <th class="col-xs-1"><b>Items:</b></th>
+                        <th class="col-xs-2"><b>Requests:</b></th>
+                        <th class="col-xs-1"><b>Errors:</b></th>
+                        <th class="col-xs-1"><b>Logs:</b></th>
+                        <th class="col-xs-2"><b>Pending Time:</b></th>
+                        <th class="col-xs-2"><b>Finished Time:</b></th>
+                        <th class="col-xs-1"><b>Outcome:</b></th>
+                        <th class="col-xs-2"><b>Searched:</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in scrapyVm.model[0].summary">
+                        <th class="col-xs-1">{{::row.spider}}</th>
+                        <th class="col-xs-1">{{::row.key}}</th>
+                        <th class="col-xs-1">{{::row.items}}</th>
+                        <th class="col-xs-2">{{::row.pages}}</th>
+                        <th class="col-xs-1">{{::row.errors?row.errors:"None"}}</th>
+                        <th class="col-xs-1">{{::row.logs}}</th>
+                        <th class="col-xs-2">{{::row.pending_time}}</th>
+                        <th class="col-xs-2">{{::row.finished_time}}</th>
+                        <th class="col-xs-1">{{::row.close_reason}}</th>
+                        <th class="col-xs-2" ng-repeat="sub in row.spider_args">{{::sub}}</th>
+                    </tr>
+
+                    
+                    <tr ng-if="scrapyVm.model[0].summary.length == 0">
+                        <td colspan="12" align="center" style="color:red;">
+                            <b>No Data</b>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div ba-panel ba-panel-title="Running: {{scrapyVm.model[1].count}}" ba-panel-class="medium-panel with-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-xs-1"><b>Name:</b></th>
+                        <th class="col-xs-1"><b>Key:</b></th>
+                        <th class="col-xs-1"><b>Items:</b></th>
+                        <th class="col-xs-2"><b>Requests:</b></th>
+                        <th class="col-xs-1"><b>Errors:</b></th>
+                        <th class="col-xs-1"><b>Logs:</b></th>
+                        <th class="col-xs-2"><b>Pending Time:</b></th>
+                        <th class="col-xs-2"><b>Finished Time:</b></th>
+                        <th class="col-xs-1"><b>Outcome:</b></th>
+                        <th class="col-xs-2"><b>Searched:</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in scrapyVm.model[1].summary">
+                        <th class="col-xs-1">{{::row.spider}}</th>
+                        <th class="col-xs-1">{{::row.key}}</th>
+                        <th class="col-xs-1">{{::row.items}}</th>
+                        <th class="col-xs-2">{{::row.pages}}</th>
+                        <th class="col-xs-1">{{::row.errors?row.errors:"None"}}</th>
+                        <th class="col-xs-1">{{::row.logs}}</th>
+                        <th class="col-xs-2">{{::row.pending_time}}</th>
+                        <th class="col-xs-2">{{::row.finished_time}}</th>
+                        <th class="col-xs-1">{{::row.close_reason}}</th>
+                        <th class="col-xs-2" ng-repeat="sub in row.spider_args">{{::sub}}</th>
+                    </tr>
+
+                    <tr ng-if="scrapyVm.model[1].summary.length == 0">
+                        <td colspan="12" align="center" style="color:red;">
+                            <b>No Data</b>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div>
+        <div ba-panel ba-panel-title="Finished: {{scrapyVm.model[2].count}}" ba-panel-class="medium-panel with-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-xs-1"><b>Name:</b></th>
+                        <th class="col-xs-1"><b>Key:</b></th>
+                        <th class="col-xs-1"><b>Items:</b></th>
+                        <th class="col-xs-2"><b>Requests:</b></th>
+                        <th class="col-xs-1"><b>Errors:</b></th>
+                        <th class="col-xs-1"><b>Logs:</b></th>
+                        <th class="col-xs-2"><b>Pending Time:</b></th>
+                        <th class="col-xs-2"><b>Finished Time:</b></th>
+                        <th class="col-xs-1"><b>Outcome:</b></th>
+                        <th class="col-xs-2"><b>Searched:</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in scrapyVm.model[2].summary">
+                        <th class="col-xs-1">{{::row.spider}}</th>
+                        <th class="col-xs-1">{{::row.key}}</th>
+                        <th class="col-xs-1">{{::row.items}}</th>
+                        <th class="col-xs-2">{{::row.pages}}</th>
+                        <th class="col-xs-1">{{::row.errors?row.errors:"None"}}</th>
+                        <th class="col-xs-1">{{::row.logs}}</th>
+                        <th class="col-xs-2">{{::row.pending_time}}</th>
+                        <th class="col-xs-2">{{::row.finished_time}}</th>
+                        <th class="col-xs-1">{{::row.close_reason}}</th>
+                        <th class="col-xs-2" ng-repeat="sub in row.spider_args">{{::sub}}</th>
+                    </tr>
+
+                    <tr ng-if="scrapyVm.model[2].summary.length == 0">
+                        <td colspan="12" align="center" style="color:red;">
+                            <b>No Data</b>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    </div>

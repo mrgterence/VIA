@@ -1,0 +1,51 @@
+<div class="modal-content" ng-controller="userInfoCtrl as userI">
+    <div class="modal-header" style="background-color:#FF9631;">
+        <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <h4 class="modal-title" style="color:white" id="myModalLabel">
+            {{searchHistoryUser}}
+        </h4>
+    </div>
+
+    <div class="modal-body">
+        <table align="center">
+            <thead>
+                <tr>
+                    <th class="col-xs-4">
+                        <b>Search Term</b>
+                    </th>
+                    <th class="col-xs-4">
+                        <b>Search Key</b>
+                    </th>
+                    <th class="col-xs-4">
+                        <b>Search Date</b>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in searchHistoryList">
+                    <th class="col-xs-4">
+                        {{::row.SearchTerm}}
+                    </th>
+                    <th class="col-xs-4">
+                        {{::row.SearchKey}}
+                    </th>
+                    <th class="col-xs-4">
+                        {{::row.CreateDate | date: 'yyyy-MM-dd HH:mm'}}
+                    </th>
+                </tr>
+
+                <tr ng-if="searchHistoryList.length == 0">
+                    <td colspan="12" align="center" style="color:red;">
+                        <b>No Data</b>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="$dismiss()">Close</button>
+    </div>
+</div>
